@@ -15,7 +15,8 @@ class Message
 
     public function getQueryString()
     {
-        return $this->request->getQuery(true);
+        $qs = $this->request->getQuery(true);
+        return !empty($qs) ? $qs : null;
     }
 
     public function getMethod()

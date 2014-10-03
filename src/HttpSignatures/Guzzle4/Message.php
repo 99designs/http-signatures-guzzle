@@ -32,7 +32,7 @@ class Message
     public function getQueryString()
     {
         $qs = $this->request->getQuery();
-        return !empty($qs) ? $qs : null;
+        return $qs->count() ? $qs : null;
     }
 
     public function getMethod()

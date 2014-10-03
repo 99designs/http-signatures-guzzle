@@ -61,6 +61,35 @@ class Guzzle4SignerTest extends \PHPUnit_Framework_TestCase
         );
     }
 
+    public function testGuzzleRequestHasExpectedHeaders2()
+    {
+        $message = $this->client->createRequest('GET', '/path', array(
+            'headers' => array('date' => 'today', 'accept' => 'llamas')
+        ));
+
+        $this->context->signer()->sign(new Message($message));
+
+        $expectedString = implode(
+            ',',
+            array(
+                'keyId="pda"',
+                'algorithm="hmac-sha256"',
+                'headers="(request-target) date"',
+                'signature="DAtF133khP05pS5Gh8f+zF/UF7mVUojMj7iJZO3Xk4o="',
+            )
+        );
+
+        $this->assertEquals(
+            $expectedString,
+            (string) $message->getHeader('Signature')
+        );
+
+        $this->assertEquals(
+            'Signature ' . $expectedString,
+            (string) $message->getHeader('Authorization')
+        );
+    }
+
     public function testVerifyGuzzleRequest()
     {
         $message = $this->client->createRequest('GET', '/path?query=123', array(

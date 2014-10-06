@@ -3,7 +3,8 @@ HTTP Signatures Guzzle 3
 
 [![Build Status](https://travis-ci.org/99designs/http-signatures-guzzle.svg)](https://travis-ci.org/99designs/http-signatures-guzzle)
 
-Adds Guzzle 3 support to [99designs/http-signatures][99signatures]
+Adds [99designs/http-signatures](http-signatures) support to Guzzle 3.  
+For Guzzle 4 see the [99designs/http-signatures-guzzlehttp](99designs/http-signatures-guzzlehttp) repo.
 
 Signing with Guzzle 3
 ---

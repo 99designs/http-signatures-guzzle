@@ -2,12 +2,14 @@
 
 namespace HttpSignatures\Guzzle;
 
+use Guzzle\Http\Message\RequestInterface;
+
 class Message
 {
     private $request;
     public $headers;
 
-    public function __construct($request)
+    public function __construct(RequestInterface $request)
     {
         $this->request = $request;
         $this->headers = new MessageHeaders($request);

@@ -3,8 +3,8 @@ HTTP Signatures Guzzle 3
 
 [![Build Status](https://travis-ci.org/99designs/http-signatures-guzzle.svg)](https://travis-ci.org/99designs/http-signatures-guzzle)
 
-Adds [99designs/http-signatures](http-signatures) support to Guzzle 3.  
-For Guzzle 4 see the [99designs/http-signatures-guzzlehttp](99designs/http-signatures-guzzlehttp) repo.
+Adds [99designs/http-signatures][99signatures] support to Guzzle 3.  
+For Guzzle 4 see the [99designs/http-signatures-guzzlehttp][99signatures-guzzlehttp] repo.
 
 Signing with Guzzle 3
 ---
@@ -36,3 +36,4 @@ $client->get('/path?query=123', array(
 Pull Requests are welcome.
 
 [99signatures]: https://github.com/99designs/http-signatures-php
+[99signatures-guzzlehttp]: https://github.com/99designs/http-signatures-guzzlehttp

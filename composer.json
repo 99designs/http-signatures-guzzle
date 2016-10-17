@@ -16,7 +16,7 @@
         }
     },
     "require": {
-        "php": ">=5.3.0",
+        "php": ">=5.5",
         "99designs/http-signatures": ">=1.1.0 <3.0.0",
         "guzzle/guzzle": "~3.9"
     },

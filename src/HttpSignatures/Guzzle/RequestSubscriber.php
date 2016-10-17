@@ -3,17 +3,25 @@
 namespace HttpSignatures\Guzzle;
 
 use Guzzle\Common\Event;
+use HttpSignatures\Context;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class RequestSubscriber implements EventSubscriberInterface
 {
+    /** @var Context */
     private $context;
 
+    /**
+     * @param Context $context
+     */
     function __construct($context)
     {
         $this->context = $context;
     }
 
+    /**
+     * @return array
+     */
     public static function getSubscribedEvents()
     {
         return array(
@@ -21,8 +29,12 @@ class RequestSubscriber implements EventSubscriberInterface
         );
     }
 
+    /**
+     * @param Event $e
+     */
     public function signRequest($e)
     {
-        $this->context->signer()->sign(new Message($e['request']));
+        $request = new Message($e['request']);
+        $this->context->signer()->sign($request);
     }
 }
